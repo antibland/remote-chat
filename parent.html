@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Parent</title>
+  <style>
+    button {
+      background: #0084ff;
+      border: none;
+      border-radius: 5px;
+      padding: 8px 14px;
+      font-size: 15px;
+      color: #fff;
+      position: fixed;
+      bottom: 0;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <iframe id="myChat" src="https://andyhoffman.codes/random-assets/chat.html"></iframe>
+  <button>Start Chat</button>
+  <script>
+    var iframeWin = document.getElementById("myChat").contentWindow;
+    var btn = document.querySelector("button");
+    btn.addEventListener("click", handleClick);
+
+    function handleClick() {
+      iframeWin.postMessage("open chat", "https://andyhoffman.codes");
+    }
+  </script>
+</body>
+</html>
