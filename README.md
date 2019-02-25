@@ -1,3 +1,3 @@
 # remote-chat
 
-[Live Demo](https://jsfiddle.net/xg9kLsr1/2/)
+[Live Demo](https://jsfiddle.net/5rbaoptn/)
