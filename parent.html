@@ -7,6 +7,16 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Parent</title>
   <style>
+    @keyframes pulsate {
+      from {
+        opacity: 1;
+      }
+
+      to {
+        opacity: 0.4;
+      }
+    }
+
     button {
       background: #0084ff;
       border: none;
@@ -14,9 +24,15 @@
       padding: 8px 14px;
       font-size: 15px;
       color: #fff;
-      position: fixed;
+      position: absolute;
       bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
       cursor: pointer;
+    }
+
+    button.chat-minimized {
+      animation: pulsate 1.5s infinite alternate;
     }
   </style>
 </head>
@@ -37,9 +53,12 @@
 
     /* Log message from chat window */
     function handleMessageReceived(e) {
-      console.log('parent received message!: ', e.data);
+      if (e.data === "minimized") {
+        btn.classList.add("chat-minimized");
+      } else if (e.data === "closed") {
+        btn.classList.remove("chat-minimized");
+      }
     }
-
   </script>
 </body>
 
