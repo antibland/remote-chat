@@ -30,10 +30,12 @@
     btn.addEventListener("click", handleClick);
     window.addEventListener("message", handleMessageReceived, false);
 
+    /* Send message to chat window if domain matches second argument */
     function handleClick() {
       iframeWin.postMessage("open chat", "https://andyhoffman.codes");
     }
 
+    /* Log message from chat window */
     function handleMessageReceived(e) {
       console.log('parent received message!: ', e.data);
     }
