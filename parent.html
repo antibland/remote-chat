@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,6 +20,7 @@
     }
   </style>
 </head>
+
 <body>
   <iframe id="myChat" src="https://andyhoffman.codes/random-assets/chat.html"></iframe>
   <button>Start Chat</button>
@@ -26,10 +28,17 @@
     var iframeWin = document.getElementById("myChat").contentWindow;
     var btn = document.querySelector("button");
     btn.addEventListener("click", handleClick);
+    window.addEventListener("message", handleMessageReceived, false);
 
     function handleClick() {
       iframeWin.postMessage("open chat", "https://andyhoffman.codes");
     }
+
+    function handleMessageReceived(e) {
+      console.log('parent received message!: ', e.data);
+    }
+
   </script>
 </body>
+
 </html>
